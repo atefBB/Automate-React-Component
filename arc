@@ -44,19 +44,17 @@ if [ ! -d $new_component_name ]; then
 
     # create files
     touch "$make_new_dir/${get_last_name}.tsx"
-    touch "$make_new_dir/${get_last_name}.scss"
+    # I don't need `scss` file
+    # touch "$make_new_dir/${get_last_name}.scss"
     echo -e "
-import * as React from \"react\"
-import { useState } from \"react\"
+import React from \"react\";
 
-import \"${get_last_name}.scss\"
+type ${get_last_name}PropsType = {};
 
-interface Props {}
+export defualt function ${get_last_name}({}: ${get_last_name}PropsType) {
+    const [state, setState] = React.useState<boolean | undefined>(undefined);
 
-export const ${get_last_name}: React.FC<Props> = ({}) => {
-    const [state, setState] = useState<boolean | undefined>(undefined)
-
-    return <h1> ${get_last_name} Component </h1>
+    return <h1>${get_last_name} Component</h1>;
 } " >"$make_new_dir/${get_last_name}.tsx"
 
     # generate log
