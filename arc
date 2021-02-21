@@ -32,12 +32,12 @@ if [ ! -d $new_component_name ]; then
 
     # if the component already exists, stop overwriting
     if [ -d $make_new_dir ]; then
-        echo -e "\033[31m[OK]\033[0m - component/${new_component_name} already exits!"
+        echo -e "\033[31m[OK]\033[0m - components/${new_component_name} already exits!"
         exit 0
     fi
 
     mkdir $make_new_dir
-    echo -e "\033[32m[OK]\033[0m - component/${new_component_name} created!"
+    echo -e "\033[32m[OK]\033[0m - components/${new_component_name} created!"
 
     # create .tsx file with the same same as parameter as file
     get_last_name=$(echo $make_new_dir | awk -F '/' '{print $NF}')
